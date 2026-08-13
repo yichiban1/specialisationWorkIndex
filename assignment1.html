@@ -29,11 +29,12 @@
         <a href="">Assignment 2</a>
     </nav>
  <section>
-                <h2>Studio project speculation:"Rolling"</h2>
+                <h2>Scenario 5 Dynamic Soundtrack-er </h2>
+                   <h2>speculation:"Rolling"</h2> 
    <main>
         <article class="prose">
             <section id="scenario-section">
-                <h2>Design Scheme Analysis and Response</h2>
+                <h3>Design Scheme Analysis and Response</h3>
                 <p>The starting point for this project is simple: I want to build a browser-based interactive toy. The user "uses" it to do something. For me, what makes a project like this good or not doesn't depend on how technically complex it is—it depends on whether the interaction itself makes people want to keep playing.</p>
                 <p>My initial idea was to work with playing cards. What interested me was the infinite possibility contained in a small deck: numbers, suits, combinations, and the decisions involved in choosing which cards to play, keep, or discard. The cards themselves are relatively simple, but the relationships between them form a more complex system. A number doesn't mean much on its own; its meaning comes from how it can be combined with other numbers, and from what the player is trying to achieve.</p>
                 <p>The more I thought about how to translate this idea into a single-player interactive scenario, the more I realized that a lot of the appeal of card games comes from the concept of playing against an opponent. Traditional card games require another player, while Balatro replaces the player with goals, scores, opponents, and increasingly complex conditions. Without those elements, the interaction can easily become little more than drawing cards and hunting for combinations. I could still use numbers, suits, and calculation to generate music, but I started to question why cards were necessary at all.</p>
@@ -51,6 +52,37 @@
 </figure>
                 <p>This feels closer to the kind of interaction I'm interested in: taking a familiar real-world action and translating it into a digital system, where the action itself becomes meaningful, rather than just being a button that triggers an effect.</p>
             </section>
+
+            <section>
+    <h3>Project Overview</h3>
+    
+    <p>At the core of the project are two dice. The user rolls them and gets a pair of numbers. Rather than mapping each number directly to a fixed note, the system interprets the numerical properties and relationships between the two dice, and translates them into musical behavior.</p>
+
+    <p>The dice determine the immediate outcome, but<strong>the user decides what to do with that outcome </strong>. After rolling, the user can either accept the result, or feel that it could be better and roll again. This creates a decision:<em>is this result good enough to keep, or is it worth the risk of rolling once more?</em> A good result gives the user a reason to stop, while an unsatisfying one gives them a reason to continue.</p>
+
+    <p>I specifically want to use two dice rather than one. Two dice are a familiar physical object in themselves, but more importantly, they introduce relationships between numbers. If one die shows 2 and the other shows 5, the system can consider their sum, their difference, whether they are close, whether they match, and how they relate to previous rolls. These numbers don't have to be treated as two separate values. The relationship between them can become the actual material for the output.</p>
+
+    <p>Two dice are important because they establish a <strong>relationship</strong>, rather than just generating a single random value. For example, a result like 2 and 5 can be interpreted through their sum, difference, distance, equality, or their relation to previous results. These attributes might influence pitch, register, rhythm, duration, intervals, repetition, or other musical parameters. During the prototyping phase, the specific mappings will remain open, because the system needs to be judged by how it sounds and feels, not just by whether the mathematical mapping makes logical sense.</p>
+
+     <figure class="img-figure">
+    <img 
+        src="https://miro.medium.com/v2/resize:fit:1400/1*Z8_BiozJZz5D_C8Nha-lRg.png" 
+        alt="111"
+        loading="lazy"
+    >
+    <figcaption>
+        Figure 2: Randomness of dice
+        <span class="fig-credit">Each dice is random, but some rolls are much more likely than others.</span>
+    </figcaption>
+</figure>
+
+    <p>The core interaction currently envisioned is:
+<strong>Roll the dice → listen to the result → decide whether to keep it or roll again → accumulate accepted results into a piece of music</strong>.</p>
+
+    <p>The key moment is the<strong> decision after the roll. </strong>If the system simply generated a random sound every time the user pressed a button, it would become a random music generator. Allowing the user to accept or reject unpredictable outcomes introduces an element of risk and agency. The user can't fully control what the dice show, but they can decide which results become part of the final piece.</p>
+
+    <p>The final output should be small and refined, rather than an endlessly looping generative system. A sequence of accepted random numbers can gradually evolve into a short musical piece. The intention is similar to the underlying ideas mentioned earlier. But the final work should feel like something <em>the user has made themselves</em>.</p>
+</section>
 
             <section id="response-section">
                 <h2>Response</h2>
