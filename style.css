@@ -44,14 +44,16 @@ header {
     text-align: center;
     margin-block-end: var(--space-md);
     max-width: 70ch;
+    padding-block-end: var(--space-md);
+    border-bottom: 1px solid var(--rule);
 }
 
 header h1 {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 700;
     line-height: 1.05;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     margin-block-end: var(--space-xs);
 }
 
@@ -62,6 +64,64 @@ header h1 {
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--muted);
+}
+
+.tagline {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-block-end: var(--space-sm);
+}
+
+.external-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+}
+
+.ext-link {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text);
+    padding: 0.4em 1em;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.ext-link:hover,
+.ext-link:focus {
+    background-color: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+}
+
+.intro-block {
+    width: min(100%, 70ch);
+    margin-block-end: var(--space-lg);
+    padding-block: var(--space-md);
+    padding-inline-start: var(--space-sm);
+    border-left: 3px solid var(--text);
+}
+
+.intro-block h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-block-end: var(--space-xs);
+}
+
+.intro-lead {
+    font-size: 1.05rem;
+    line-height: 1.75;
 }
 
 /* ===== navigation ===== */
@@ -182,6 +242,30 @@ main {
 
 
 
+/* ===== acknowledgement ===== */
+.acknowledgement {
+    width: min(100%, 70ch);
+    margin-block-start: var(--space-lg);
+    padding-block: var(--space-sm);
+    border-top: 1px solid var(--rule);
+}
+
+.acknowledgement h2 {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-block-end: var(--space-xs);
+}
+
+.acknowledgement p {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: var(--muted);
+}
+
 /* ===== footer ===== */
 footer {
     margin-block-start: var(--space-xl);
@@ -226,6 +310,16 @@ a:focus-visible {
 
     .site-nav {
         gap: var(--space-sm);
+    }
+
+    .external-links {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-xs);
+    }
+
+    .intro-block {
+        padding-inline-start: var(--space-sm);
     }
 }
 

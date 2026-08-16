@@ -20,21 +20,29 @@
 <body>
 
     <header>
-        <h1>Assignment 1</h1>
-        <p class="subtitle">System Design Document</p>
+        <p class="subtitle">Assignment 1 — System Design Document</p>
+        <h1>Rolling</h1>
+        <p class="tagline">A two-dice interactive music prototype</p>
+        <nav class="external-links">
+            <a href="https://github.com/yichiban1" target="_blank" class="ext-link">GitHub</a>
+            <a href="https://au.miro.com/app/board/u3jVOf56c2M=/?share_link_id=605762848363" target="_blank" class="ext-link">Miro Board</a>
+        </nav>
     </header>
 
     <nav class="site-nav">
         <a href="./index.html">Home page</a>
         <a href="">Assignment 2</a>
     </nav>
- <section>
-                <h2>Scenario 5 Dynamic Soundtrack-er </h2>
-                   <h2>speculation:"Rolling"</h2> 
-   <main>
+
+    <section class="intro-block">
+        <h2>Scenario &amp; Speculation</h2>
+        <p class="intro-lead">Scenario 5 required the design of a <mark>dynamic music tool</mark> that allows users to generate changing music through interaction. My project responds to this scenario by using the randomness of dice as the source of musical material and user decisions as the selection mechanism for the music structure.</p>
+    </section>
+
+    <main>
         <article class="prose">
             <section id="scenario-section">
-                <h3>Design Scheme purpose  and Response</h3>
+                <h3>Design Scheme Purpose and Response</h3>
                 <p>The starting point for this project is simple: I want to build a browser-based interactive toy. The user "uses" it to do something. For me, what makes a project like this good or not doesn't depend on how technically complex it is—it depends on whether the interaction itself makes people want to keep playing.</p>
                 <p>My initial idea was to work with playing cards. What interested me was the infinite possibility contained in a small deck: numbers, suits, combinations, and the decisions involved in choosing which cards to play, keep, or discard. The cards themselves are relatively simple, but the relationships between them form a more complex system. A number doesn't mean much on its own; its meaning comes from how it can be combined with other numbers, and from what the player is trying to achieve.</p>
                 <p>The more I thought about how to translate this idea into a single-player interactive scenario, the more I realized that a lot of the appeal of card games comes from the concept of playing against an opponent. Traditional card games require another player, while <cite>Balatro</cite> replaces the player with goals, scores, opponents, and increasingly complex conditions. Without those elements, the interaction can easily become little more than drawing cards and hunting for combinations. I could still use numbers, suits, and calculation to generate music, but I started to question why cards were necessary at all.</p>
@@ -87,8 +95,9 @@
 
             <section id="framing-section">
                 <h2>Framing</h2>
-                <p>The main conceptual framework is the transformation of chance into musical structure. The dice are not used merely as visual elements or a random number button. Their physical and mathematical properties are the most important interactive part of the project as a whole.</p>
-                <p>The basic interaction I currently envision is simple: roll two dice, and the result produces a short piece of music. The user can choose to keep that result or roll again. Accepted results do not disappear; they accumulate. So after several choices, the user has built a short sound sequence.</p>
+                <p>The starting point for this project is not to build a random music generator. If the system simply translated each dice roll into a sound mechanically, the user would quickly lose interest—they'd realize they're just pressing a "generate random notes" button that happens to look like dice. What truly interests me is that brief moment after the result appears but before the decision to accept or reject it. There is a subtle tension in that moment: you know you can't control the result, yet you are genuinely making a meaningful choice.</p>
+
+                <p>This feeling reminds me of the tension in gambling games—not because I want to build a gambling simulator, but because that moment of decision before the outcome is revealed is emotionally charged. I want to preserve that tension, but redirect its outcome toward music rather than money or points. In other words, the user is not "composing"—they are <mark>betting on a melody</mark>, and then deciding whether it is worth keeping.</p>
                  <figure class="img-figure">
     <img 
         src="Pica01.png" 
@@ -97,20 +106,18 @@
          >
     <figcaption>
         Figure 3:Project overall architecture diagram
-        <span class="fig-credit">Each dice is random, but some rolls are much more likely than others.</span>
+        <span class="fig-credit">A speculative framework for a two-dice music interaction.</span>
     </figcaption>
 </figure>
-                <p>This history can also become part of the visual interface. Previous dice rolls can gradually form a simple score, sequence, or visual record. The interface will still focus on the dice themselves, but the accumulated history reveals the evolution of the combinations.</p>
-                <p>The physical properties of the dice can also be translated into sound itself. The rolling, colliding, and coming to rest of the dice can produce subtle percussive sounds. Then, once the dots are revealed, music plays. In this way, the audio feedback is closely tied to the physical metaphor, rather than sound being merely decorative.</p>
-                <p>The mechanics of the prototype can be very simple. I can test different ways of converting two values into pitch, rhythm, duration, and relationship, and then listen to see which mappings produce interesting results. I can also experiment with how much risk allowing repeated rolls introduces, and I can also experiment with the level of risk that repeated rolling introduces, and whether earlier results should stay stable over time or gradually shift as new rolls are accepted.</p>
-                <p>The project will not try to be a complete dice game, gambling simulation, or roguelike system. It does not need opponents, a traditional scoring system, a character progression system, a shop, or complex rule systems. I am interested in borrowing the sense of exploration and discovery found in similar games. <cite>Balatro</cite>—where simple numerical objects become interesting through combination and decision—without copying its game structure. The focus remains on the interplay between probability, choice, and musical output.</p>
+                <p>I have also thought about the physicality of the dice themselves. Dice are more attractive than a software random number generator because they have weight, shape, the sound when they settle, and the trajectory as they roll. These physical properties obviously cannot be fully replicated in a digital interface, but I want to preserve that sense of "throwing" as much as possible in the interaction—through a click or drag to trigger a roll, then waiting for the result to appear. This process itself carries a suspended anticipation.Physicality matters to me, but I don't plan to simulate it through 3D rendering. Instead, I want to translate the feeling of 'throwing' into interaction <code>the user initiates a roll, waits briefly, and receives a result</code>. That pause, that anticipation, is the digital equivalent of dice settling." If the moment of rolling can carry a subtle collision sound, and if the corresponding pitch plays immediately after the dice settle, then the entire interaction forms a complete loop in both hearing and sight.</p>
+                <p>Regarding the <mark>accept or reject</mark> decision mechanism, I want it to carry real weight. The user cannot re-roll indefinitely, otherwise risk ceases to exist and the decision loses its meaning. What specific constraint to use—such as limiting to three re-rolls, or having the cost of accumulated results change after each re-roll—these will need to be explored and adjusted during prototyping. But the core intention remains unchanged: every roll should be an event the user takes seriously, not a casual button press for amusement.</p>
             </section>
 
                <section id="response-section">
-                <h2>From Digital to Sound</h2>
+                <h2>Musical Mapping</h2>
                 <p>I don't want the dice to merely control visual shapes or generate random abstract images. A short piece of music feels like a more concrete outcome: it can accumulate over time, ultimately becoming a game between the user and their choices.</p>
                 <p>The numerical properties of the dice can influence various aspects of music—not just mapping one number to one note. One value might affect <dfn>pitch</dfn> or <dfn>register</dfn>, another might affect duration or rhythm, and the relationship between them could determine intervals, harmony, repetition, or other musical expressions. The project will explore specific mappings through prototyping experiments using <abbr title="A framework for creating interactive music in the browser">Tone.js</abbr>.</p>
-                <p>This is also where I can learn from logic. <cite>Balatro</cite> doesn't try to make games similar to <cite>Balatro</cite>. The key isn't numbers on cards. Rather, when players begin to discover various relationships and combinations that produce unexpected results, simple numerical systems become interesting. I want to apply this sense of discovery to music rather than to scores.</p>
+                <p>This is also where I can learn from Balatro. <cite>Balatro</cite> doesn't try to be similar to other games. The key isn't numbers on cards. Rather, when players begin to discover various relationships and combinations that produce unexpected results, simple numerical systems become interesting. I want to apply this sense of discovery to music rather than to scores.</p>
                   <figure class="img-figure">
     <img 
         src="https://upload.wikimedia.org/wikipedia/en/1/11/Balatro_big_blind.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled" 
@@ -130,21 +137,89 @@
                 <h2>Interacting Design Analysis</h2>
 
                 <section id="example1-section">
-                    <h3>Example 1</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto asperiores deleniti, dolore, fugiat harum ipsum magni natus nemo nobis quos, totam veniam. Assumenda eaque labore minus praesentium quidem sapiente?</p>
+                    <h3>Example 1: Chrome Music Lab / Song Maker</h3>
+                    <p><a href="https://musiclab.chromeexperiments.com/Song-Maker//" target="_blank">Chrome Music Lab</a> demonstrates how musical interaction can be achieved through direct manipulation rather than traditional music software. Its Song Maker experiment allows users to create and share songs, and the project as a whole aims to make music more accessible through hands-on browser-based practice. It uses <abbr title="Web Audio API and Tone.js">web technologies</abbr> to let users create a complete, small-scale work with strong musical feedback through simple interactions.</p>
+                        <figure class="img-figure">
+    <img 
+        src="Pica02.png" 
+        alt="111"
+        loading="lazy"
+         >
+    <figcaption>
+        Figure 5:Song Maker
+        <span class="fig-credit">feedback was very interesting and very direct; it directly used MIDI from the keyboard.</span>
+    </figcaption>
+</figure>
+                    <p>What matters most is not its visual style, but its ability to make musical structure understandable through interaction. Users can make changes and hear results immediately.</p>
+                    <p>For the dice game, this means that each roll's result should not disappear after sounding, but should become part of an accumulating musical structure. Users should eventually realize that a series of discrete interactions have formed a complete piece, rather than a sequence of unrelated sounds.</p>
                 </section>
 
                 <section id="example2-section">
-                    <h3>Example 2</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto asperiores deleniti, dolore, fugiat harum ipsum magni natus nemo nobis quos, totam veniam. Assumenda eaque labore minus praesentium quidem sapiente?</p>
+                    <h3>Example 2: RANDOM.ORG Dice Roller</h3>
+                    <p><a href="https://www.random.org/dice/" target="_blank">RANDOM.ORG</a> provides an interesting contrast because its dice roller is almost entirely focused on randomness. Users select the number of dice and roll them to get results. Its <dfn>information design</dfn> is extremely simple—the skin of a pure random number generator.</p>
+                    <figure class="img-figure">
+    <img 
+        src="Pica03.png" 
+        alt="111"
+        loading="lazy"
+         >
+    <figcaption>
+        Figure 6:RANDOM.ORG
+        <span class="fig-credit">The algorithm behind it is quite interesting; it doesn't rely on pure randomness, but rather achieves randomness through atmospheric noise. Its overall website information design has a retro feel reminiscent of the last century.</span>
+    </figcaption>
+</figure>
+                    <p>Its interface demonstrates that randomness as a concept can be conveyed with minimal interaction. The project treats randomness as the starting point of interaction, not the final result. Treating randomness as the entire experience is also its greatest weakness—once the result is revealed, people have no reason to continue paying attention.</p>
+                    <p>RANDOM.ORG also makes the mathematical patterns of dice interesting. Using two six-sided dice, certain combinations appear more frequently than others. This allows <mark>probability itself</mark> to be incorporated into the musical system—for example, letting common combinations produce more familiar or recurring works, while rare combinations produce less frequent ones.</p>
+                    <p>The core of the dice project should be what happens after the roll—randomness is the starting point of interaction, not the endpoint. I need to ensure users have a reason to linger, think, and decide after each roll. If users treat it like RANDOM.ORG—roll and leave—the project has failed.</p>
+                </section>
+
+                <section id="example3-section">
+                    <h3>Example 3: Ableton Learning Music</h3>
+                    <p><a href="https://learningmusic.ableton.com/" target="_blank">Ableton's Learning Music</a> is particularly relevant to this project's musical structure because it allows users to experiment with music directly in the browser, with no experience or equipment required. The entry interaction starts with small, toggleable musical components, encouraging users to explore combinations they enjoy. The feature then separates beats, basslines, chords, and melodies while keeping them synchronized, enabling users to build more complex works from simple parts.</p>
+                    <figure class="img-figure">
+    <img 
+        src="Pica04.png" 
+        alt="111"
+        loading="lazy"
+         >
+    <figcaption>
+        Figure 7:Ableton Learning Music
+        <span class="fig-credit">The core interaction method of the website is still through clicking. Of course, after clicking, you can hear great preset music. Even a music novice like me, with no knowledge of music theory, can create their own pretty good music by clicking on different instruments. In this respect, I think it has achieved its purpose very well.</span>
+    </figcaption>
+</figure>
+                    <p>The useful principle here is <strong>layering</strong>—simple interactions don't have to stay simple. Small musical events can accumulate into larger structures, and users can understand the system through experimentation rather than prior learning.</p>
+                    <p>This supports the dice project's layered development strategy. The first prototype should be very simple: two dice, one roll, one musical response. Once this interaction is pleasing, additional layers can be built on top—the relationship between numbers, the accept/re-roll decision, repeating patterns, probability, musical themes, and eventually a clear ending that creates a complete short piece.</p>
+                    <p>The key difference is that Ableton gives users direct control over musical elements, while the dice project deliberately introduces uncertainty. So this project combines Ableton's accessible layering with the unpredictability of dice.</p>
+                </section>
+
+                <section id="example4-section">
+                    <h3>Example 4: Musical Dice</h3>
+                    <p><a href="https://gbrachetta.github.io/Musical-Dice/" target="_blank">Musical Dice</a> is a modern web recreation of the 18th-century <cite>Musikalisches Würfelspiel</cite> (musical dice game). The historical game used dice to randomly select combinations from pre-written musical fragments to "generate" music—essentially using dice randomness for collage-style composition.</p>
+                    <figure class="img-figure">
+    <img 
+        src="Pica05.png" 
+        alt="111"
+        loading="lazy"
+         >
+    <figcaption>
+        Figure 8:Musical Dice
+        <span class="fig-credit">The idea of ​​"dice + music" has a historical context. It's a game that existed in the 18th century. This gives me more confidence—the idea itself is valid; it's just that what I'm doing is different.</span>
+    </figcaption>
+</figure>
+                    <p>The value of this project is that it provides an entirely different frame of reference. Unlike RANDOM.ORG, Musical Dice's starting point is not "pure randomness" but <mark>structured randomness</mark>. Every result from a roll corresponds to a pre-written musical fragment that is guaranteed to connect smoothly with others. So no matter how they are combined, the result always sounds "complete."</p>
+                    <p>Musical Dice reinforces my conviction that relationships are more interesting than fragment collage. Its logic is: roll dice → select a preset fragment → assemble. What I want to do is: roll dice → two numbers' relationship → generate musical behavior. The former depends on the quality of preset material; the latter depends on the design of mapping rules. I believe the latter has more room for exploration, because it is not permutation of fixed fragments, but generating something new from numerical relationships.</p>
                 </section>
             </section>
         </article>
     </main>
 
+    <section class="acknowledgement">
+        <h2>AI Acknowledgement</h2>
+        <p>I used an AI model to help me clarify the structure of this document and reorganize some repetitive or unclear sections. It also helped me make some adjustments to the sentence syntax. The actual ideas and design direction all came from my own writing.</p>
+    </section>
+
     <footer>
         <p>
-            Page maintained by
             <a href="https://github.com/yichiban1" target="_blank">Spike</a>
         </p>
     </footer>
